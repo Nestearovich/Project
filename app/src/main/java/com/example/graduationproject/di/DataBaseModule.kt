@@ -1,20 +1,24 @@
 package com.example.graduationproject.di
 
 import android.content.Context
-import androidx.room.Room
+import com.example.graduationproject.data.database.NewsDao
 import com.example.graduationproject.data.database.NewsDataBase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+class DataBaseModule {
     @Provides
-    fun provideContext(@ApplicationContext context: Context): Context {
-        return context
+    fun provideItemsDao(newsDataBase: NewsDataBase):NewsDao{
+        return newsDataBase.getNewsDao()
+    }
+
+    @Provides
+    fun newsDatabase(context: Context): NewsDataBase{
+        return NewsDataBase.getItemsDatabaseInstance(context)
     }
 }
