@@ -11,7 +11,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
+
 
 
 @Module
@@ -21,12 +21,10 @@ abstract class DataModule {
     abstract fun bindNewsRepository(
         newsRepositoryImpl: NewsRepositoryImpl
     ): NewsRepository
-
-    @Provides
-    fun providesBaseUrl(): String {
-        return BASE_URL
-    }
     companion object{
+        fun providesBaseUrl(): String {
+            return BASE_URL
+        }
         @Provides
         fun provideApiService(retrofit: Retrofit): ApiService {
             return retrofit.create(ApiService::class.java)

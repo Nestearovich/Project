@@ -6,23 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.graduationproject.R
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.graduationproject.databinding.FragmentDetailsBinding
 
 
-@AndroidEntryPoint
-class NewsFragment : Fragment() {
+class DetailsFragment : Fragment() {
 
+    private var _binding: FragmentDetailsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_news, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
+    ): View {
+        _binding = FragmentDetailsBinding.inflate(layoutInflater, container,false)
+        return binding.root
     }
 }
