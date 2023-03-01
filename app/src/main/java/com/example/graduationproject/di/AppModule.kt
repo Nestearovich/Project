@@ -1,8 +1,6 @@
 package com.example.graduationproject.di
 
 import android.content.Context
-import androidx.room.Room
-import com.example.graduationproject.data.database.NewsDataBase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
