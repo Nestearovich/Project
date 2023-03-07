@@ -32,18 +32,16 @@ class SectionsFragment : Fragment(R.layout.fragment_sections),NewsListener {
             binding.swipeRefresh.isRefreshing = it
         }
 
-        viewModel.update()
 
         viewModel.bundle.observe(viewLifecycleOwner) { navBundle ->
             if (navBundle != null) {
                 val bundle = Bundle()
                 bundle.putString("section",navBundle.section)
-                bundle.putString("displayName",navBundle.displayName)
 
                 Toast.makeText(context, "called", Toast.LENGTH_SHORT).show()
 
                 navigateWithBundle(
-                    R.id.action_sectionsFragment_to_articleFragment,
+                    navBundle.destinationId,
                     bundle
                 )
                 viewModel.userNavigated()

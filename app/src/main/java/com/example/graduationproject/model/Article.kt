@@ -4,8 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "articleEntity")
-data class ArticleEntity constructor(
+@Entity(tableName = "article")
+data class Article constructor(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val title: String,

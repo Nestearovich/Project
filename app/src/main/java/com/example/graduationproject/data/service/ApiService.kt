@@ -1,7 +1,8 @@
 package com.example.graduationproject.data.service
 
 import com.example.graduationproject.data.ApiResponseResults
-import com.example.graduationproject.model.ArticleEntity
+import com.example.graduationproject.model.Article
+
 import com.example.graduationproject.model.Section
 import com.example.graduationproject.utils.Constant.API_KEY
 import retrofit2.http.GET
@@ -15,9 +16,9 @@ interface ApiService {
 
     @GET("content/all/{section}.json")
     suspend fun getArticles(
-        @Path("section") section: String,
+        @Path("section") article: String,
         @Query("api-key") key: String = API_KEY
-    ): ApiResponseResults<ArticleEntity>
+    ): ApiResponseResults<Article>
 
 }
 

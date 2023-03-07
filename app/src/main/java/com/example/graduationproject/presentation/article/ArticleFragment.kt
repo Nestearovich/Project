@@ -30,7 +30,6 @@ class ArticleFragment : Fragment(R.layout.fragment_artical) {
             binding.swipeRefresh.isRefreshing = it
         }
 
-        viewModel.update()
     }
 
 }

@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.graduationproject.databinding.ItemArticleBinding
-import com.example.graduationproject.model.ArticleEntity
+import com.example.graduationproject.model.Article
 
 class ArticleAdapter :
-    ListAdapter<ArticleEntity, ArticleAdapter.ViewHolder>(ArticleAdapterDiffCallback()) {
+    ListAdapter<Article, ArticleAdapter.ViewHolder>(ArticleAdapterDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemArticleBinding.inflate(

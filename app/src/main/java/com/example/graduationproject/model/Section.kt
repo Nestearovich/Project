@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 @Entity("sectionEntity")
 data class Section constructor(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
+    val id: Int,
     @SerializedName("section")
     val section: String? = null,
     @SerializedName("display_name")
