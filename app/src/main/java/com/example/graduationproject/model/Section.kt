@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity
+@Entity("sectionEntity")
 data class Section constructor(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,

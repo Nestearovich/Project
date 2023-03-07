@@ -27,7 +27,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/newsText"
+            android:id="@+id/articleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"

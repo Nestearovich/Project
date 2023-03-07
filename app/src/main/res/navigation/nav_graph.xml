@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
     app:startDestination="@id/sectionsFragment">
 
     <fragment
         android:id="@+id/sectionsFragment"
-        android:name="com.example.graduationproject.presentation.sections.SectionsFragment" />
+        android:name="com.example.graduationproject.presentation.sections.SectionsFragment" >
+        <action
+            android:id="@+id/action_sectionsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.graduationproject.presentation.article.ArticleFragment"
+        android:label="fragment_artical"
+        tools:layout="@layout/fragment_artical" />
 
 </navigation>

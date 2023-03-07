@@ -1,6 +1,7 @@
 package com.example.graduationproject.data.database
 
 import androidx.room.*
+import com.example.graduationproject.model.ArticleEntity
 import com.example.graduationproject.model.Section
 import kotlinx.coroutines.flow.Flow
 
@@ -9,18 +10,33 @@ import kotlinx.coroutines.flow.Flow
 interface SectionsDao {
 
     @Transaction
-    suspend fun updateSections(sections: List<Section>) {
+    suspend fun updateSections(sectionEntities: List<Section>) {
         deleteAll()
-        saveOrReplace(sections)
+        saveOrReplace(sectionEntities)
     }
 
-    @Query("DELETE FROM section")
+    @Query("DELETE FROM sectionEntity")
     suspend fun deleteAll()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveOrReplace(data: List<Section>)
 
-    @Query("SELECT * FROM section")
+    @Query("SELECT * FROM sectionEntity")
     fun observeAll(): Flow<List<Section>>
+
+    @Transaction
+    suspend fun updateNews(articleEntities: List<ArticleEntity>) {
+        deleteAll()
+        replace(articleEntities)
+    }
+
+    @Query("DELETE FROM articleEntity")
+    suspend fun deleteNews()
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun replace(data: List<ArticleEntity>)
+
+    @Query("SELECT * FROM articleEntity")
+    fun observeNews(): Flow <List<ArticleEntity>>
 
 }
