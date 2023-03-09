@@ -8,10 +8,11 @@ import com.example.graduationproject.model.Article
 import com.example.graduationproject.model.Section
 
 
-@Database(entities = [Section::class,Article::class], version = 1, exportSchema = false)
+@Database(entities = [Section::class, Article::class], version = 1, exportSchema = false)
 abstract class AppDataBase : RoomDatabase() {
 
     abstract fun getSectionsDao(): SectionsDao
+    abstract fun getArticlesDao(): ArticlesDao
 
     companion object {
         private const val DATABASE_NAME = "app_db"
@@ -24,6 +25,7 @@ abstract class AppDataBase : RoomDatabase() {
                     AppDataBase::class.java,
                     DATABASE_NAME
                 )
+                .fallbackToDestructiveMigration()
                 .build()
                 .also { DATABASE_INSTANCE = it }
         }

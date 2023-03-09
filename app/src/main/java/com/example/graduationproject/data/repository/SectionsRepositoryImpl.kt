@@ -17,6 +17,10 @@ class SectionsRepositoryImpl @Inject constructor(
         return sectionsDao.observeAll()
     }
 
+    override suspend fun getSections(): List<Section> {
+        return sectionsDao.getAll()
+    }
+
     override suspend fun refreshSections() {
         val sections = apiService.getSections().getResultsOrThrow()
         println(sections)

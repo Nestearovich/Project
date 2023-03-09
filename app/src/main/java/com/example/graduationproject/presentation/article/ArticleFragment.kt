@@ -3,6 +3,7 @@ package com.example.graduationproject.presentation.article
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.graduationproject.R
@@ -24,12 +25,22 @@ class ArticleFragment : Fragment(R.layout.fragment_artical) {
         binding.recyclerArticle.layoutManager = LinearLayoutManager(requireContext())
         viewModel.items.observe(viewLifecycleOwner) { adapter.submitList(it) }
 
-
         binding.swipeRefresh.setOnRefreshListener { viewModel.update() }
         viewModel.isLoading.observe(viewLifecycleOwner) {
             binding.swipeRefresh.isRefreshing = it
         }
 
+    }
+
+    companion object {
+        const val SECTION_KEY = "section_arg"
+        const val DISPLAY_NAME_KEY = "display_name_arg"
+        fun createArgument(section: String?, displayName: String?): Bundle {
+            return bundleOf(
+                SECTION_KEY to section,
+                DISPLAY_NAME_KEY to displayName,
+            )
+        }
     }
 
 }

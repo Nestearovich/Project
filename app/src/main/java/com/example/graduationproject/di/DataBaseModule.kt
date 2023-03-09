@@ -2,6 +2,7 @@ package com.example.graduationproject.di
 
 import android.content.Context
 import com.example.graduationproject.data.database.AppDataBase
+import com.example.graduationproject.data.database.ArticlesDao
 import com.example.graduationproject.data.database.SectionsDao
 import dagger.Module
 import dagger.Provides
@@ -16,6 +17,11 @@ class DataBaseModule {
     @Provides
     fun provideItemsDao(newsDataBase: AppDataBase): SectionsDao {
         return newsDataBase.getSectionsDao()
+    }
+
+    @Provides
+    fun provideArticlesDao(newsDataBase: AppDataBase): ArticlesDao {
+        return newsDataBase.getArticlesDao()
     }
 
     @Provides

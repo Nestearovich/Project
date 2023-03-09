@@ -12,6 +12,10 @@ class SectionsInteractor @Inject constructor(
         return sectionsRepository.observeSections()
     }
 
+    suspend fun isDataBaseEmpty(): Boolean {
+        return sectionsRepository.getSections().isEmpty()
+    }
+
     suspend fun refreshSections() {
         sectionsRepository.refreshSections()
     }

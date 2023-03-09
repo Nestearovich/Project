@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface ArticleRepository {
 
-    fun observeArticle(): Flow <List<Article>>
+    fun observeArticle(sectionName: String): Flow<List<Article>>
 
-    suspend fun refreshArticle()
+    suspend fun refreshArticle(sectionName: String)
 }

@@ -8,6 +8,8 @@ interface SectionsRepository {
 
     fun observeSections(): Flow<List<Section>>
 
+    suspend fun getSections(): List<Section>
+
     suspend fun refreshSections()
 
 }

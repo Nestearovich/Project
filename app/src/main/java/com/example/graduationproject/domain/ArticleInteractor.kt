@@ -8,12 +8,12 @@ class ArticleInteractor @Inject constructor(
     private val articleRepository: ArticleRepository
 ) {
 
-    fun observeArticle(): Flow< List<Article>> {
-        return articleRepository.observeArticle()
+    fun observeArticle(sectionName: String): Flow<List<Article>> {
+        return articleRepository.observeArticle(sectionName)
     }
 
-    suspend fun refreshArticle() {
-       articleRepository.refreshArticle()
+    suspend fun refreshArticle(sectionName: String) {
+        articleRepository.refreshArticle(sectionName)
     }
 
 }

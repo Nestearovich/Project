@@ -1,9 +1,10 @@
 package com.example.graduationproject.presentation.sections
 
-import androidx.lifecycle.*
-import com.example.graduationproject.R
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.graduationproject.domain.SectionsInteractor
-import com.example.graduationproject.presentation.listener.NewsListener
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -11,14 +12,18 @@ import javax.inject.Inject
 @HiltViewModel
 class SectionsViewModel @Inject constructor(
     private val sectionsInteractor: SectionsInteractor,
-
 ) : ViewModel() {
 
     val isLoading = MutableLiveData(false)
     val items = sectionsInteractor.observeSections().asLiveData()
 
-    private val _bundle = MutableLiveData<NavigateWithBundle?>()
-    val bundle: LiveData<NavigateWithBundle?> = _bundle
+    init {
+        viewModelScope.launch {
+            if (sectionsInteractor.isDataBaseEmpty()) {
+                update()
+            }
+        }
+    }
 
     fun update() {
         viewModelScope.launch {
@@ -31,20 +36,5 @@ class SectionsViewModel @Inject constructor(
             isLoading.value = false
         }
     }
-    fun userNavigated() {
-        _bundle.value = null
-    }
-
-     fun elementClicked(section: String?, displayName: String?) {
-        _bundle.value = NavigateWithBundle(
-            section , displayName,  R.id.action_sectionsFragment_to_articleFragment
-        )
-    }
 
 }
-
-data class NavigateWithBundle(
-    val section: String?,
-    val displayName: String?,
-    val destinationId: Int
-)

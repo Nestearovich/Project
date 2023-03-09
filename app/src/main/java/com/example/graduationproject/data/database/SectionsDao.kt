@@ -24,19 +24,7 @@ interface SectionsDao {
     @Query("SELECT * FROM sectionEntity")
     fun observeAll(): Flow<List<Section>>
 
-    @Transaction
-    suspend fun updateNews(articleEntities: List<Article>) {
-        deleteAll()
-        replace(articleEntities)
-    }
-
-    @Query("DELETE FROM article")
-    suspend fun deleteNews()
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun replace(data: List<Article>)
-
-    @Query("SELECT * FROM article")
-    fun observeNews(): Flow <List<Article>>
+    @Query("SELECT * FROM sectionEntity")
+    suspend fun getAll(): List<Section>
 
 }

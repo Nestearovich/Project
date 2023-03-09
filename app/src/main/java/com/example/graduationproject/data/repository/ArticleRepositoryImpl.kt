@@ -1,26 +1,25 @@
 package com.example.graduationproject.data.repository
 
-import com.example.graduationproject.data.database.SectionsDao
+import com.example.graduationproject.data.database.ArticlesDao
 import com.example.graduationproject.data.service.ApiService
 import com.example.graduationproject.domain.ArticleRepository
 import com.example.graduationproject.model.Article
-import com.example.graduationproject.model.Section
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class ArticleRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
-    private val sectionsDao: SectionsDao
+    private val articlesDao: ArticlesDao
 ) : ArticleRepository {
 
-    override fun observeArticle(): Flow <List<Article>> {
-        return sectionsDao.observeNews()
+
+    override fun observeArticle(sectionName: String): Flow<List<Article>> {
+        return articlesDao.observeAll(sectionName)
     }
 
-    override suspend fun refreshArticle() {
-        val article = apiService.getArticles("books").getResultsOrThrow()
-        println(article)
-        sectionsDao.replace(article)
+    override suspend fun refreshArticle(sectionName: String) {
+        val articles = apiService.getArticles(sectionName).getResultsOrThrow()
+        articlesDao.updateSectionArticles(sectionName, articles)
     }
 
 }
