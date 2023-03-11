@@ -1,4 +1,4 @@
-package com.example.graduationproject.presentation.adapter
+package com.example.graduationproject.presentation.article.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

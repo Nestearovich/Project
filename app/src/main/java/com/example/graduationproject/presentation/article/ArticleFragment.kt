@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.graduationproject.R
 import com.example.graduationproject.databinding.FragmentArticalBinding
-import com.example.graduationproject.presentation.adapter.ArticleAdapter
+import com.example.graduationproject.presentation.article.adapter.ArticleAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

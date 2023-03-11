@@ -1,4 +1,4 @@
-package com.example.graduationproject.presentation.adapter
+package com.example.graduationproject.presentation.article.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.graduationproject.model.Article

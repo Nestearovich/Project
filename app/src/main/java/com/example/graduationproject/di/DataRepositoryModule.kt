@@ -1,9 +1,11 @@
 package com.example.graduationproject.di
 
 import com.example.graduationproject.data.repository.ArticleRepositoryImpl
+import com.example.graduationproject.data.repository.PopularRepositoryImpl
 import com.example.graduationproject.data.repository.SectionsRepositoryImpl
 import com.example.graduationproject.data.service.ApiService
 import com.example.graduationproject.domain.ArticleRepository
+import com.example.graduationproject.domain.PopularRepository
 import com.example.graduationproject.domain.SectionsRepository
 import com.example.graduationproject.utils.Constant.BASE_URL
 import dagger.Binds
@@ -24,6 +26,9 @@ abstract class DataRepositoryModule {
 
     @Binds
     abstract fun bindArticleRepository(impl: ArticleRepositoryImpl): ArticleRepository
+
+    @Binds
+    abstract fun bindPopularRepository(impl: PopularRepositoryImpl): PopularRepository
 
 
 
