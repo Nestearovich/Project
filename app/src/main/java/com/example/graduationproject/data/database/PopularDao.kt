@@ -20,9 +20,9 @@ interface PopularDao {
     @Query("SELECT * FROM popular")
     fun observeNews(): Flow<List<Popular>>
 
-    @Query("SELECT * FROM sectionEntity")
+    @Query("SELECT * FROM popular")
     suspend fun getAll(): List<Popular>
 
-    @Query("DELETE FROM sectionEntity")
+    @Query("DELETE FROM popular")
     suspend fun deleteAll()
 }

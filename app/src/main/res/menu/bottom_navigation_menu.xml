@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-
     <item
-        android:id="@+id/forYouFragment"
+        android:id="@+id/popularFragment"
         android:icon="@drawable/ic_foryouicon"
         android:title="Most Popular" />
 
     <item
-        android:id="@+id/sectionFragment"
+        android:id="@+id/sectionsFragment"
         android:icon="@drawable/ic_th_large_512"
         android:title="Section" />
 

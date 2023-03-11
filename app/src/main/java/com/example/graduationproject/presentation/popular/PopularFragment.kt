@@ -27,7 +27,7 @@ class PopularFragment : Fragment(R.layout.fragment_popular) {
         val adapter = PopularAdapter()
         binding.rvMostPopularNews.adapter = adapter
         binding.rvMostPopularNews.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.items.observe(viewLifecycleOwner) { adapter.differ }
+        viewModel.items.observe(viewLifecycleOwner) { adapter.differ.submitList(it) }
 
         binding.swipeRefresh.setOnRefreshListener { viewModel.update() }
         viewModel.isLoading.observe(viewLifecycleOwner) {
