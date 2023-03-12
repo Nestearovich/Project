@@ -44,9 +44,9 @@ class PopularAdapter(
 
     override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
         val item = getItem(position)
+        holder.binding.tvTitle.text = item.title
         holder.binding.tvDate.text = item.updated
         holder.binding.tvAbstract.text = item.description
-        holder.binding.tvTitle.text = item.title
         holder.bind(item)
     }
 
