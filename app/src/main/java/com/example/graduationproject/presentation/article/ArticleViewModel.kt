@@ -1,5 +1,6 @@
 package com.example.graduationproject.presentation.article
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.graduationproject.domain.ArticleInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +24,7 @@ class ArticleViewModel @Inject constructor(
             try {
                 articleInteractor.refreshArticle(section)
             } catch (e: Exception) {
-                // обработать ошибку
+              Log.w("error update",toString())
             }
             isLoading.value = false
         }

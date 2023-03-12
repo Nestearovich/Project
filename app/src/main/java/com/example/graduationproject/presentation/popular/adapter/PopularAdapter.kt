@@ -5,52 +5,49 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.graduationproject.R
+import com.example.graduationproject.databinding.ItemArticleBinding
 import com.example.graduationproject.databinding.NewsItemLayoutBinding
+import com.example.graduationproject.model.Article
 import com.example.graduationproject.model.Popular
+import com.example.graduationproject.presentation.article.adapter.ArticleAdapter
+import com.example.graduationproject.presentation.listener.PopListener
 
-class PopularAdapter:RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() {
+class PopularAdapter(
+    private val listener: PopListener
+) : ListAdapter<Popular, PopularAdapter.PopularViewHolder>(PopularAdapterDiffCallback()) {
 
-     class PopularViewHolder( val binding: NewsItemLayoutBinding):RecyclerView.ViewHolder(binding.root){
-
-    }
-
-    private val callback = object :DiffUtil.ItemCallback<Popular>(){
-        override fun areItemsTheSame(oldItem: Popular, newItem: Popular): Boolean {
-            return oldItem.url == newItem.url
+    class PopularViewHolder(val binding: NewsItemLayoutBinding, private val listener: PopListener) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(popular: Popular) {
+            itemView.setOnClickListener {
+                listener.onClick(
+                    popular
+                )
+            }
         }
 
-        override fun areContentsTheSame(oldItem: Popular, newItem: Popular): Boolean {
-            return oldItem ==newItem
-        }
     }
-
-    val differ = AsyncListDiffer(this,callback)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularViewHolder {
-        return  PopularViewHolder(
-            NewsItemLayoutBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
+        val binding = NewsItemLayoutBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
         )
+        return PopularViewHolder(binding, listener)
     }
 
-    override fun getItemCount(): Int {
-        return differ.currentList.size
-    }
+
 
     override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
-        val popular = differ.currentList[position]
-       holder.binding.tvMostNewsTitle.text = popular.title
-    }
-
-    private var onItemClickListener:((Popular)->Unit)? = null
-
-    fun setOnItemClickListener(listener:(Popular)->Unit){
-        onItemClickListener = listener
+        val item = getItem(position)
+        holder.binding.tvDate.text = item.updated
+        holder.binding.tvAbstract.text = item.description
+        holder.binding.tvTitle.text = item.title
+        holder.bind(item)
     }
 
 }

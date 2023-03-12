@@ -1,6 +1,7 @@
 package com.example.graduationproject.presentation.popular
 
 import android.provider.SyncStateContract.Helpers.update
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -20,13 +21,15 @@ class PopularViewModel @Inject constructor(
     val isLoading = MutableLiveData(false)
     val items = popularInteractor.observePopular() .asLiveData()
 
-    init {
-        viewModelScope.launch {
-            if (popularInteractor.isDataBaseEmpty()) {
-                update()
-            }
-        }
-    }
+   init {
+       viewModelScope.launch {
+           try {
+               popularInteractor.refreshIfNeed()
+           }catch (e:Exception){
+
+           }
+       }
+   }
 
     fun update() {
             viewModelScope.launch {
@@ -34,7 +37,7 @@ class PopularViewModel @Inject constructor(
                 try {
                     popularInteractor.refreshPopular()
                 } catch (e: Exception) {
-                    // обработать ошибку
+                    Log.w("error update",toString())
                 }
                 isLoading.value = false
             }

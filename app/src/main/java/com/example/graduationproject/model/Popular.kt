@@ -2,24 +2,26 @@ package com.example.graduationproject.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 
 @Entity("popular")
 data class Popular constructor(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-   // val `abstract`: String,
+    var id: Long = 0,
+    @SerializedName("abstract")
+    var description: String?=null,
    // val adx_keywords: String,
-    val byline: String?,
+    var byline: String?=null,
     //val media: List<Media>,
   //  val nytdsection: String,
-    val published_date: String?,
-    val section: String?,
-    val source: String?,
-    val subsection: String?,
-    val title: String?,
-    val type: String?,
-    val updated: String?,
-    val uri: String?,
-    val url: String?
+    var published_date: String?=null,
+    var section: String?=null,
+    var source: String?=null,
+    var subsection: String?=null,
+    var title: String?=null,
+    var type: String?=null,
+    var updated: String?=null,
+    var uri: String?=null,
+    var url: String?=null
 )

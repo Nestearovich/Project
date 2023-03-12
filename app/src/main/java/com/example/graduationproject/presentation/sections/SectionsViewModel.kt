@@ -1,5 +1,6 @@
 package com.example.graduationproject.presentation.sections
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -31,7 +32,7 @@ class SectionsViewModel @Inject constructor(
             try {
                 sectionsInteractor.refreshSections()
             } catch (e: Exception) {
-                // обработать ошибку
+                Log.w("error update",toString())
             }
             isLoading.value = false
         }

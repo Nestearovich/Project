@@ -26,6 +26,7 @@ class ArticleAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         holder.binding.articleText.text = item.title
+        holder.binding.tvAbstract.text = item.description
         Glide.with(holder.itemView.context).load(item.thumbnail_standard).into(holder.image)
         holder.bind(item)
     }
