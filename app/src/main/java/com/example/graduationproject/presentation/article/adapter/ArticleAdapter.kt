@@ -28,6 +28,7 @@ class ArticleAdapter(
         holder.binding.articleText.text = item.title
         holder.binding.tvAbstract.text = item.description
         holder.binding.tvDate.text = item.published_date
+        holder.binding.tvSection.text = item.section
         Glide.with(holder.itemView.context).load(item.thumbnail_standard).into(holder.image)
         holder.bind(item)
     }

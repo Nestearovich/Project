@@ -26,6 +26,7 @@ class SectionsAdapter(
         holder.bind(item)
     }
 
+
     class ViewHolder(val binding: ItemSectionBinding,private val newsListener: NewsListener) : RecyclerView.ViewHolder(binding.root)
     {
         fun bind(sectionsEntity: Section){

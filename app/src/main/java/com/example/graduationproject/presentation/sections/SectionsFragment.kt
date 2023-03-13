@@ -27,10 +27,10 @@ class SectionsFragment : Fragment(R.layout.fragment_sections), NewsListener {
         viewModel.items.observe(viewLifecycleOwner) { adapter.submitList(it) }
 
 
-        binding.swipeRefresh.setOnRefreshListener { viewModel.update() }
-        viewModel.isLoading.observe(viewLifecycleOwner) {
-            binding.swipeRefresh.isRefreshing = it
-        }
+//        binding.swipeRefresh.setOnRefreshListener { viewModel.update() }
+//        viewModel.isLoading.observe(viewLifecycleOwner) {
+//            binding.swipeRefresh.isRefreshing = it
+//        }
 
     }
 
