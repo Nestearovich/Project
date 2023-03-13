@@ -1,9 +1,8 @@
-package com.example.graduationproject.presentation
+package com.example.graduationproject.presentation.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.graduationproject.R
 import com.example.graduationproject.databinding.ActivitySplashSreenBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +20,7 @@ class SplashSreen : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(2000)
-            startActivity(Intent(this@SplashSreen,MainActivity::class.java))
+            startActivity(Intent(this@SplashSreen, MainActivity::class.java))
             finish()
         }
 

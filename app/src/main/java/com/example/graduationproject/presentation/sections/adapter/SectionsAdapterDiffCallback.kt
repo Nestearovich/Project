@@ -1,4 +1,4 @@
-package com.example.graduationproject.presentation.sections
+package com.example.graduationproject.presentation.sections.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.graduationproject.model.Section

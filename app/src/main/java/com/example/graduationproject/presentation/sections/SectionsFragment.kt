@@ -9,6 +9,7 @@ import com.example.graduationproject.R
 import com.example.graduationproject.databinding.FragmentSectionsBinding
 import com.example.graduationproject.presentation.article.ArticleFragment
 import com.example.graduationproject.presentation.listener.NewsListener
+import com.example.graduationproject.presentation.sections.adapter.SectionsAdapter
 import com.example.graduationproject.utils.NavigateHalper.navigateWithBundle
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,10 +28,7 @@ class SectionsFragment : Fragment(R.layout.fragment_sections), NewsListener {
         viewModel.items.observe(viewLifecycleOwner) { adapter.submitList(it) }
 
 
-//        binding.swipeRefresh.setOnRefreshListener { viewModel.update() }
-//        viewModel.isLoading.observe(viewLifecycleOwner) {
-//            binding.swipeRefresh.isRefreshing = it
-//        }
+
 
     }
 

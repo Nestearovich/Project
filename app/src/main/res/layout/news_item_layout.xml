@@ -18,7 +18,7 @@
             android:layout_width="394dp"
             android:layout_height="66dp"
             android:fontFamily="@font/font_chelt_bold_italics"
-            android:text="TextView"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -29,7 +29,7 @@
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
             android:layout_width="291dp"
             android:layout_height="56dp"
             android:fontFamily="@font/font_chelt_bold"
-            android:text="TextView"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.018"

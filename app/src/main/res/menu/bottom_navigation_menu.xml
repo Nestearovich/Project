@@ -4,11 +4,11 @@
     <item
         android:id="@+id/popularFragment"
         android:icon="@drawable/ic_foryouicon"
-        android:title="Most Popular" />
+        android:title="@string/most_popular" />
 
     <item
         android:id="@+id/sectionsFragment"
         android:icon="@drawable/ic_th_large_512"
-        android:title="Section" />
+        android:title="@string/section" />
 
 </menu>

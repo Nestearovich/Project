@@ -12,7 +12,6 @@ data class Article constructor(
     var title: String?=null,
     @SerializedName("abstract")
     var description: String?=null,
-   // var multimedia: List<Multimedia>?=null,
     var section: String?=null,
     var published_date: String?=null,
     var item_type: String?=null,
