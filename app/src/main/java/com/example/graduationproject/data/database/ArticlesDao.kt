@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ArticlesDao {
-
     @Transaction
     suspend fun updateSectionArticles(section: String?, sectionEntities: List<Article>) {
         deleteAllWithSection(section)
