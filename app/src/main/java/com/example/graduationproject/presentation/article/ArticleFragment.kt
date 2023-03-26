@@ -34,6 +34,8 @@ class ArticleFragment : Fragment(R.layout.fragment_artical),Listener {
             binding.swipeRefresh.isRefreshing = it
         }
 
+
+
     }
 
     companion object {
@@ -52,5 +54,10 @@ class ArticleFragment : Fragment(R.layout.fragment_artical),Listener {
         val customTabsIntent = builder.build()
         customTabsIntent.launchUrl(requireContext(), Uri.parse(article.url))
     }
+
+    override fun onFavClicked(title: String) {
+        viewModel.onFavClicked(title,)
+    }
+
 
 }

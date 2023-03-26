@@ -29,5 +29,15 @@ class ArticleViewModel @Inject constructor(
             isLoading.value = false
         }
     }
+    fun onFavClicked(title: String){
+        viewModelScope.launch {
+            try {
+                articleInteractor.onFavClicked(title)
+            }catch (e: Exception){
+                Log.w("News fav clicked", e.message.toString())
+            }
+
+        }
+    }
 
 }

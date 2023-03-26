@@ -2,6 +2,7 @@ package com.example.graduationproject.data.database
 
 import androidx.room.*
 import com.example.graduationproject.model.Article
+import com.example.graduationproject.model.Favorite
 import kotlinx.coroutines.flow.Flow
 
 
@@ -21,5 +22,14 @@ interface ArticlesDao {
 
     @Query("SELECT * FROM article WHERE section LIKE :section ")
     fun observeAll(section: String?): Flow<List<Article>>
+
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)//IGNORE WHEN CONFLICT OCCRS
+    fun insertFavoritesEntity(favorite: Favorite)
+
+    @Query("SELECT * FROM article WHERE title = :title")
+    fun findItemEntityByDescription(title:String): Article
+    @Query("SELECT * FROM favorite")
+    fun getFavoriteEntities(): Flow<List<Favorite>>
 
 }

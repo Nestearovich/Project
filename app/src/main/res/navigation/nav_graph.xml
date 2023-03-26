@@ -19,6 +19,9 @@
             app:destination="@id/popularFragment"
             app:enterAnim="@android:anim/slide_out_right"
             app:exitAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_sectionsFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/popularFragment"
@@ -29,10 +32,25 @@
             android:id="@+id/action_popularFragment_to_sectionsFragment"
             app:destination="@id/sectionsFragment"
             app:exitAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_popularFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
         android:name="com.example.graduationproject.presentation.article.ArticleFragment"
         android:label="fragment_artical"
         tools:layout="@layout/fragment_artical" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.graduationproject.presentation.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_popularFragment"
+            app:destination="@id/popularFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_sectionsFragment"
+            app:destination="@id/sectionsFragment" />
+    </fragment>
 </navigation>

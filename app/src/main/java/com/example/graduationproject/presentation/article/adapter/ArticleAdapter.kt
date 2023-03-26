@@ -35,12 +35,16 @@ class ArticleAdapter(
 
     class ViewHolder(val binding: ItemArticleBinding,private val listener: Listener) : RecyclerView.ViewHolder(binding.root){
         val image = binding.imageView
+        val fav = binding.btnFav
 
         fun bind(article: Article){
             itemView.setOnClickListener {
                 listener.onClick(
                     article
                 )
+            }
+            fav.setOnClickListener {
+                fav.isSelected = !it.isSelected
             }
         }
     }

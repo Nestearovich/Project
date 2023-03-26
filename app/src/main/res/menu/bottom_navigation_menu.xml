@@ -10,5 +10,9 @@
         android:id="@+id/sectionsFragment"
         android:icon="@drawable/ic_th_large_512"
         android:title="@string/section" />
+    <item
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/ic_th_large_512"
+        android:title="Favorite" />
 
 </menu>

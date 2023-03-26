@@ -40,6 +40,7 @@
             android:id="@+id/tv_abstract"
             android:layout_width="296dp"
             android:layout_height="68dp"
+            android:text=""
             android:fontFamily="@font/font_chelt_bold_italics_extra"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,17 +72,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
-            android:id="@+id/btnFav"
-            android:layout_width="41dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/favorites_selected_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.954"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_addfav" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
