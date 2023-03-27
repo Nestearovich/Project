@@ -11,4 +11,5 @@
     <string name="invalid_username">Login invalid!</string>
     <string name="invalid_password">Password invalid!</string>
     <string name="log_out">Log out</string>
+    <string name="sign_in">sign in</string>
 </resources>
