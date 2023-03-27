@@ -5,8 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.graduationproject.databinding.ItemFavoriteBinding
 import com.example.graduationproject.model.Favorite
+import com.example.graduationproject.presentation.listener.FavoriteListener
 
-class FavoriteAdapter: RecyclerView.Adapter<FavoriteViewHolder>() {
+class FavoriteAdapter(
+    private val favoriteListener: FavoriteListener
+): RecyclerView.Adapter<FavoriteViewHolder>() {
 
     private var listItems = mutableListOf<Favorite>()
 
@@ -18,7 +21,7 @@ class FavoriteAdapter: RecyclerView.Adapter<FavoriteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
         val binding = ItemFavoriteBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return FavoriteViewHolder(binding)
+        return FavoriteViewHolder(binding,favoriteListener)
     }
 
     override fun getItemCount(): Int {

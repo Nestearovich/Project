@@ -55,8 +55,8 @@ class ArticleFragment : Fragment(R.layout.fragment_artical),Listener {
         customTabsIntent.launchUrl(requireContext(), Uri.parse(article.url))
     }
 
-    override fun onFavClicked(title: String) {
-        viewModel.onFavClicked(title,)
+    override fun onFavClicked(id: Long) {
+        viewModel.onFavClicked(id)
     }
 
 

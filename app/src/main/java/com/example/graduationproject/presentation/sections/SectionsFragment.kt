@@ -27,7 +27,9 @@ class SectionsFragment : Fragment(R.layout.fragment_sections), NewsListener {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.items.observe(viewLifecycleOwner) { adapter.submitList(it) }
 
-
+        binding.btnLogOut.setOnClickListener {
+            viewModel.logOutUser()
+        }
 
 
     }

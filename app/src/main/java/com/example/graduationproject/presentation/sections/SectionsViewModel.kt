@@ -1,11 +1,9 @@
 package com.example.graduationproject.presentation.sections
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
-import com.example.graduationproject.domain.SectionsInteractor
+import androidx.lifecycle.*
+import com.example.graduationproject.R
+import com.example.graduationproject.domain.items.SectionsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,6 +16,8 @@ class SectionsViewModel @Inject constructor(
     val isLoading = MutableLiveData(false)
     val items = sectionsInteractor.observeSections().asLiveData()
 
+    private val _logoutUser = MutableLiveData<Int?>()
+    val logoutUser: LiveData<Int?> = _logoutUser
     init {
         viewModelScope.launch {
             if (sectionsInteractor.isDataBaseEmpty()) {
@@ -38,4 +38,11 @@ class SectionsViewModel @Inject constructor(
         }
     }
 
+    fun logOutUser() {
+        viewModelScope.launch {
+            sectionsInteractor.logoutUser()
+            _logoutUser.value = R.navigation.auth_graph
+
+        }
+    }
 }

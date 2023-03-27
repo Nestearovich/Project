@@ -3,14 +3,12 @@ package com.example.graduationproject.data.repository
 import com.example.graduationproject.data.database.ArticlesDao
 import com.example.graduationproject.data.prefer.SharedPreferencesHelper
 import com.example.graduationproject.data.service.ApiService
-import com.example.graduationproject.domain.ArticleRepository
+import com.example.graduationproject.domain.items.ArticleRepository
 import com.example.graduationproject.model.Article
 import com.example.graduationproject.model.Favorite
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import java.util.*
 import javax.inject.Inject
 
 class ArticleRepositoryImpl @Inject constructor(
@@ -31,9 +29,9 @@ class ArticleRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun findItemByDescription(title: String): Favorite {
+    override suspend fun findItemByDescription(id: Long): Favorite {
         return withContext(Dispatchers.IO){
-            val favorite = articlesDao.findItemEntityByDescription(title)
+            val favorite = articlesDao.findItemEntityByDescription(id)
             Favorite(favorite.id,favorite.title,favorite.description)
         }
     }

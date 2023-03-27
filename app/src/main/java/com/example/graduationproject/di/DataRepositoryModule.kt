@@ -1,20 +1,15 @@
 package com.example.graduationproject.di
 
-import com.example.graduationproject.data.repository.ArticleRepositoryImpl
-import com.example.graduationproject.data.repository.PopularRepositoryImpl
-import com.example.graduationproject.data.repository.SectionsRepositoryImpl
-import com.example.graduationproject.data.service.ApiService
-import com.example.graduationproject.domain.ArticleRepository
-import com.example.graduationproject.domain.PopularRepository
-import com.example.graduationproject.domain.SectionsRepository
-import com.example.graduationproject.utils.Constant.BASE_URL
+import com.example.graduationproject.data.repository.*
+import com.example.graduationproject.domain.auth.AuthRepository
+import com.example.graduationproject.domain.items.ArticleRepository
+import com.example.graduationproject.domain.items.FavoriteRepository
+import com.example.graduationproject.domain.items.PopularRepository
+import com.example.graduationproject.domain.items.SectionsRepository
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 @Module
@@ -29,6 +24,12 @@ abstract class DataRepositoryModule {
 
     @Binds
     abstract fun bindPopularRepository(impl: PopularRepositoryImpl): PopularRepository
+
+    @Binds
+    abstract fun bindAuthRepository(impl: AuthRepositoryImpl): AuthRepository
+
+    @Binds
+    abstract fun bindFavoriteRepository(impl: FavoriteRepositoryImpl): FavoriteRepository
 
 
 

@@ -6,4 +6,9 @@
     <string name="sections">Sections</string>
     <string name="most_popular">Most Popular</string>
     <string name="section">Section</string>
+    <string name="errorInternet">Please check your internet connection!</string>
+    <string name="error_login_user">Login error</string>
+    <string name="invalid_username">Login invalid!</string>
+    <string name="invalid_password">Password invalid!</string>
+    <string name="log_out">Log out</string>
 </resources>

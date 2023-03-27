@@ -1,4 +1,4 @@
-package com.example.graduationproject.domain
+package com.example.graduationproject.domain.items
 
 import com.example.graduationproject.model.Section
 import kotlinx.coroutines.flow.Flow
@@ -18,6 +18,10 @@ class SectionsInteractor @Inject constructor(
 
     suspend fun refreshSections() {
         sectionsRepository.refreshSections()
+    }
+
+    suspend fun logoutUser(){
+        sectionsRepository.logoutUser()
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.graduationproject.domain
+package com.example.graduationproject.domain.items
 
 import com.example.graduationproject.data.prefer.SharedPreferencesHelper
 import com.example.graduationproject.model.Popular

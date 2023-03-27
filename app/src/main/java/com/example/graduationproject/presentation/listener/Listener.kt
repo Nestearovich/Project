@@ -5,5 +5,5 @@ import com.example.graduationproject.model.Article
 interface Listener {
     fun onClick(article: Article)
 
-    fun onFavClicked(title: String)
+    fun onFavClicked(id: Long)
 }

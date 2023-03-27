@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.graduationproject.R
 import com.example.graduationproject.databinding.FragmentFavoriteBinding
 import com.example.graduationproject.presentation.favorite.adapter.FavoriteAdapter
+import com.example.graduationproject.presentation.listener.FavoriteListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FavoriteFragment : Fragment() {
+class FavoriteFragment : Fragment(),FavoriteListener {
 
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
@@ -33,7 +33,7 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        favAdapter = FavoriteAdapter()
+        favAdapter = FavoriteAdapter(this)
         val recyclerView = binding.favRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = favAdapter
@@ -44,6 +44,10 @@ class FavoriteFragment : Fragment() {
         viewModel.favorites.observe(viewLifecycleOwner){
             favAdapter.submitList(it)
         }
+    }
+
+    override fun onDeleteClicked(id: Long) {
+        viewModel.deleteFavorite(id)
     }
 
 }

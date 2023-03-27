@@ -1,4 +1,4 @@
-package com.example.graduationproject.domain
+package com.example.graduationproject.domain.items
 
 import com.example.graduationproject.data.prefer.SharedPreferencesHelper
 import com.example.graduationproject.model.Article
@@ -19,12 +19,12 @@ class ArticleInteractor @Inject constructor(
         articleRepository.refreshArticle(sectionName)
     }
 
-    suspend fun findItem(searchText: String):Favorite{
-        return articleRepository.findItemByDescription(searchText)
+    suspend fun findItem(id: Long):Favorite{
+        return articleRepository.findItemByDescription(id)
     }
 
-    suspend fun onFavClicked(title: String){
-        val foundItem =  articleRepository.findItemByDescription(title)
+    suspend fun onFavClicked(id: Long){
+        val foundItem =  articleRepository.findItemByDescription(id)
         articleRepository.favClicked(foundItem)
     }
 

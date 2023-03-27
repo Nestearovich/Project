@@ -15,40 +15,42 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/articleText"
-            android:layout_width="167dp"
-            android:layout_height="59dp"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
             android:fontFamily="@font/font_chelt_bold"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.029"
+            app:layout_constraintHorizontal_bias="0.046"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.104" />
+            app:layout_constraintVertical_bias="0.182" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView"
-            android:layout_width="201dp"
-            android:layout_height="148dp"
+            android:layout_width="136dp"
+            android:layout_height="114dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.934"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.058" />
+            app:layout_constraintVertical_bias="0.157" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_abstract"
-            android:layout_width="296dp"
-            android:layout_height="68dp"
+            android:layout_width="377dp"
+            android:layout_height="75dp"
             android:fontFamily="@font/font_chelt_bold_italics_extra"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintHorizontal_bias="0.151"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.846" />
+            app:layout_constraintVertical_bias="0.803" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_date"
             android:layout_width="211dp"
             android:layout_height="22dp"
@@ -59,7 +61,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.973" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_section"
             android:layout_width="117dp"
             android:layout_height="20dp"
@@ -71,15 +73,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/btnFav"
-            android:layout_width="41dp"
-            android:layout_height="42dp"
+            android:layout_width="28dp"
+            android:layout_height="26dp"
             android:layout_marginBottom="4dp"
             android:background="@drawable/favorites_selected_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.954"
+            app:layout_constraintHorizontal_bias="0.989"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/ic_addfav" />
 

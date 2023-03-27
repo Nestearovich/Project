@@ -2,7 +2,6 @@ package com.example.graduationproject.presentation.article.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -37,6 +36,7 @@ class ArticleAdapter(
         val image = binding.imageView
         val fav = binding.btnFav
 
+
         fun bind(article: Article){
             itemView.setOnClickListener {
                 listener.onClick(
@@ -45,6 +45,7 @@ class ArticleAdapter(
             }
             fav.setOnClickListener {
                 fav.isSelected = !it.isSelected
+                article.id?.let { it1 -> listener.onFavClicked(it1) }
             }
         }
     }

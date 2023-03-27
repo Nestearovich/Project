@@ -2,7 +2,7 @@ package com.example.graduationproject.presentation.article
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.graduationproject.domain.ArticleInteractor
+import com.example.graduationproject.domain.items.ArticleInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -29,10 +29,10 @@ class ArticleViewModel @Inject constructor(
             isLoading.value = false
         }
     }
-    fun onFavClicked(title: String){
+    fun onFavClicked(id: Long){
         viewModelScope.launch {
             try {
-                articleInteractor.onFavClicked(title)
+                articleInteractor.onFavClicked(id)
             }catch (e: Exception){
                 Log.w("News fav clicked", e.message.toString())
             }

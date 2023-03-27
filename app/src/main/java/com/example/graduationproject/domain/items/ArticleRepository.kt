@@ -1,4 +1,4 @@
-package com.example.graduationproject.domain
+package com.example.graduationproject.domain.items
 
 import com.example.graduationproject.model.Article
 import com.example.graduationproject.model.Favorite
@@ -10,7 +10,7 @@ interface ArticleRepository {
 
     suspend fun refreshArticle(sectionName: String)
 
-    suspend fun findItemByDescription(title: String): Favorite
+    suspend fun findItemByDescription(id: Long): Favorite
 
     suspend fun favClicked(favorite: Favorite)
 

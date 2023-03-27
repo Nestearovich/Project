@@ -27,9 +27,11 @@ interface ArticlesDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)//IGNORE WHEN CONFLICT OCCRS
     fun insertFavoritesEntity(favorite: Favorite)
 
-    @Query("SELECT * FROM article WHERE title = :title")
-    fun findItemEntityByDescription(title:String): Article
+    @Query("SELECT * FROM article WHERE id = :id")
+    fun findItemEntityByDescription(id:Long): Article
     @Query("SELECT * FROM favorite")
     fun getFavoriteEntities(): Flow<List<Favorite>>
+    @Query("DELETE FROM favorite WHERE id = :id")
+    fun deleteFavoriteEntityById(id: Long)
 
 }

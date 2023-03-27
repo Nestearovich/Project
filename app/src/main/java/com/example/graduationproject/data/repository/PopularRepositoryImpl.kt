@@ -3,7 +3,7 @@ package com.example.graduationproject.data.repository
 import com.example.graduationproject.data.database.PopularDao
 import com.example.graduationproject.data.prefer.SharedPreferencesHelper
 import com.example.graduationproject.data.service.ApiService
-import com.example.graduationproject.domain.PopularRepository
+import com.example.graduationproject.domain.items.PopularRepository
 import com.example.graduationproject.model.Popular
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +14,7 @@ class PopularRepositoryImpl @Inject constructor(
     private val api:ApiService,
     private val popularDao:PopularDao,
     private val preferences: SharedPreferencesHelper
-) :PopularRepository {
+) : PopularRepository {
 
     override fun observePopular(): Flow<List<Popular>> {
       return  popularDao.observeNews()
